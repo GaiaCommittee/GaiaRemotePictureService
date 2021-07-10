@@ -19,7 +19,7 @@ int main(int arguments_count, char** arguments)
             ("picture,i", value<std::string>(), "name of the picture to show.")
             ("width,w", value<unsigned int>(), "width of the window to resize")
             ("height,h", value<unsigned int>(), "height of the window to resize")
-            ("frequency,f", value<unsigned int>()->default_value(10),
+            ("frequency,f", value<unsigned int>()->default_value(30),
                     "update frequency.");
     variables_map variables;
     store(parse_command_line(arguments_count, arguments, options), variables);
