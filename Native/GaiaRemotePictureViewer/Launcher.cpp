@@ -12,7 +12,7 @@ int main(int arguments_count, char** arguments)
 
     options.add_options()
             ("help,?", "show help message.")
-            ("host,h", value<std::string>(),
+            ("host,a", value<std::string>(),
                     "host of the remote picture server to connect to.")
             ("port,p", value<unsigned int>()->default_value(6379),
                     "port of the remote picture server to connect to.")
