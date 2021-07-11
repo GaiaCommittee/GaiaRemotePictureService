@@ -6,7 +6,6 @@
 #include <sw/redis++/redis++.h>
 #include <shared_mutex>
 #include <unordered_map>
-#include <GaiaTCP/GaiaTCP.hpp>
 #include <GaiaSharedPicture/GaiaSharedPicture.hpp>
 
 namespace Gaia::RemotePicture
