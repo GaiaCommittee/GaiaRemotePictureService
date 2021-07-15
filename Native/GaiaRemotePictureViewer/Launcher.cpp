@@ -12,7 +12,7 @@ int main(int arguments_count, char** arguments)
 
     options.add_options()
             ("help,?", "show help message.")
-            ("host,a", value<std::string>(),
+            ("host,a", value<std::string>()->default_value("127.0.0.1"),
                     "host of the remote picture server to connect to.")
             ("port,p", value<unsigned int>()->default_value(6379),
                     "port of the remote picture server to connect to.")
@@ -74,7 +74,7 @@ int main(int arguments_count, char** arguments)
         ++received_count;
     }));
 
-    auto last_fps_time = std::chrono::steady_clock::now();
+//    auto last_fps_time = std::chrono::steady_clock::now();
 
     while (true)
     {
@@ -84,13 +84,13 @@ int main(int arguments_count, char** arguments)
 
         client.Update();
 
-        auto current_time = std::chrono::steady_clock::now();
-        if (std::chrono::duration_cast<std::chrono::seconds>(current_time - last_fps_time).count() > 1)
-        {
-            std::cout << "FPS: " << received_count << std::endl;
-            received_count = 0;
-            last_fps_time = current_time;
-        }
+//        auto current_time = std::chrono::steady_clock::now();
+//        if (std::chrono::duration_cast<std::chrono::seconds>(current_time - last_fps_time).count() > 1)
+//        {
+//            std::cout << "FPS: " << received_count << std::endl;
+//            received_count = 0;
+//            last_fps_time = current_time;
+//        }
 
         if (client.LatestPicture.empty())
         {
@@ -125,4 +125,5 @@ int main(int arguments_count, char** arguments)
         }
         cv::imshow(picture_name, display_picture);
     }
+    return 0;
 }
